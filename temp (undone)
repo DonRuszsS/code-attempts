@@ -1,0 +1,241 @@
+#include <iostream>
+#include <stdlib.h>
+#include <cstring>
+
+using namespace  std;
+
+void Exit()
+{
+	int exit;
+	cout << "          ============================================ \n";
+	cout << "          ||                                        || \n";
+	cout << "          ||            CONGRATULATIONS             || \n";
+	cout << "          ||                                        || \n";
+	cout << "          ============================================ \n";
+	cout << endl;
+	cout << "PRESS ANY KEY TO EXIT.";
+}
+
+void ExamMath()
+{
+	char key;
+	cout << "          ============================================ \n";
+	cout << "          ||                                        || \n";
+	cout << "          ||  WELCOME TO THE WORLD OF MATHEMATICS!  || \n";
+	cout << "          ||                                        || \n";
+	cout << "          ============================================ \n";
+	cout << endl; 
+	cout << "Are you ready to take the Examination? (Y/y for YES) (N/n for NO)" << endl;
+	cin >> key;
+	
+	switch (key)
+	{
+		case 'Y':
+		case 'y':
+			//automatically will go to the exam.
+		break;
+		
+		case 'N':
+		case 'n':
+			system ("CLS"); //it will loop to the same exact situation until is says Yes.
+			cout << "YOU CAN DO THIS! Type Y/y to proceed" << endl;
+			cout << endl;
+			return ExamMath();
+		break;
+		
+		default:
+			system ("CLS");
+			cout << "YOU ENTERED A WRONG CHARACTER! type Y/y to proceed" << endl;
+			cout << endl;
+			return ExamMath();
+		break;
+	}
+	system ("CLS");
+	
+	float Total;
+	char Ans1, Ans2, Ans3, Ans4, Ans5;
+	
+	cout << "Question number 1:" << endl;
+	cout << endl;
+	cout << "What is the value of Pi?" << endl;
+	cout << endl;
+	cout << "a. 3.12           c. 3.14" << endl;
+	cout << endl;
+	cout << "b. 314            d. 31.4" << endl;
+	cout << endl;
+	cout << "answer: ";
+	cin >> Ans1;
+	
+	switch (Ans1)
+	{
+		case 'C':
+		case 'c':
+			++Total;
+		break;
+		
+		default:
+			0+Total;
+		break;
+	}
+	
+	system("CLS");
+	cout << "Question number 2:" << endl;
+	cout << endl;
+	cout << "Who is the Father of Mathematics?" << endl;
+	cout << endl;
+	cout << "a. Archimedes     c. Charles Babbage" << endl;
+	cout << "b. Russel         d. Thales of Miletus" << endl;
+	cout << endl;
+	cout << "answer: ";
+	cin >> Ans2;
+	
+	switch (Ans2)
+	{
+		case 'a':
+		case 'A':
+			++Total;
+		break;
+		
+		default:
+			0+Total;
+		break;
+	}
+	
+	system ("CLS");
+	cout << "Question 3:" << endl;
+	cout << endl;
+	cout << "Who discovered Pythagoras Theorem?" << endl;
+	cout << endl;
+	cout << "a. Albert Einstein         c. Charles Babbage" << endl;
+	cout << endl;
+	cout << "b. Phytagoras of Samon     d. Thales of Miletus" << endl;
+	cout << endl;
+	cin >> Ans3;
+	
+	switch (Ans3)
+	{
+		case 'B':
+		case 'b':
+			++Total;
+		break;
+		
+		default:
+			0+Total;
+		break;
+	}
+	
+	system ("CLS");
+	cout << "Question number 3:" << endl;
+	cout << endl;
+	cout << "Where was Abacus invented?" << endl;
+	cout << endl;
+	cout << "a. Philippines   c. Malaysia" << endl;
+	cout << endl;
+	cout << "b. Japan         d. China" << endl;
+	cout << endl;
+	cout << "answer: ";
+	cin >> Ans4;
+	
+	switch (Ans4)
+	{
+		case 'D':
+		case 'd':
+			++Total;
+		break;
+		
+		default:
+			0+Total;
+		break;
+	}
+	
+	system("CLS");
+	cout << "Question number 5: " << endl;
+	cout << endl;
+	cout << "The total number of dots a dice" << endl;
+	cout << endl;
+	cout << "a. 23     c. 18" << endl;
+	cout << "b. 40     d. 21" << endl;
+	cout << endl;
+	cout << "answer: ";
+	cin >> Ans5;
+	
+	switch (Ans5)
+	{
+		case 'D':
+		case 'd':
+			++Total;
+		break;
+		
+		default:
+			0+Total;
+		break;
+	}
+	
+	char res;
+	
+	system ("CLS");
+	cout << "          ============================================ \n";
+	cout << "          ||                                        || \n";
+	cout << "          ||                ALL DONE!               || \n";
+	cout << "          ||                                        || \n";
+	cout << "          ============================================ \n";
+	cout << endl;
+	cout << "do you want to see your score? (Y/y for YES) (N/n for NO)" << endl;
+	cin >> res;
+	
+	switch (res)
+	{
+		case 'Y':
+		case 'y':
+				cout << "Your total Score is: " << Total <<"/5" << endl;
+		break;
+		
+		default:
+			//automatically go to int main function
+		break;
+	}
+	
+	return;
+}
+
+int main()
+{
+	//Profile();
+	string Name, Course;
+	float Age;
+	
+	cout << "Name:    ";
+	cin >> Name;
+	
+	cout << "Age:     ";
+	cin >> Age;
+	
+	cout << "Course:  ";
+	cin >> Course;
+	
+	system("CLS"); //clearing the screen inside <stdlib.h> (library)
+	
+	ExamMath();
+	
+	
+	int Again;
+	
+	cout << endl;
+	cout << "Do you want to take the Exam Again? (Y/y for YES) (N/n for NO)" << endl;
+	cout << endl;
+	cin >> Again;
+	
+	switch (Again)
+	{
+		case 'Y':
+		case 'y':
+			ExamMath();
+		break;
+		
+		//default:
+			//Exit();
+		//break;
+	}
+	
+return 0;
+}
