@@ -1,23 +1,88 @@
-#include <iostream>
-#include <stdlib.h>
-#include <cstring>
+#include <iostream> //cin and cout
+#include <stdlib.h> //clearing the screen
+#include <cstring> //string itself
 
 using namespace  std;
 
-void Exit()
+// this another way to call the functions below (so called Prototyping)
+void ExamMath(string& name, string& age, string& course); //& sign in data type used to reference the value hehe 
+void Done(); 
+void Display_Profile(string& a, string& b, string& c);
+void Profile(string& a, string& b, string& c);
+void Display_Profile(string& a, string& b, string& c);
+
+int main()
 {
-	int exit;
+	string Name, Age, Course;
+	Profile(Name, Age, Course);
+	
+	system("cls"); //clearing the screen inside <stdlib.h> (library)
+	
+	// do while loop is used to loop
+	do{
+	    ExamMath(Name, Age, Course);
+	    
+	    char again;
+	    cout << endl;
+    	cout << "Do you want to take the Exam Again? (Y/y for YES) (N/n for NO)" << endl;
+    	cout << endl;
+    	cin >> again;
+    	// if function is used to terminate the loop
+	    if (again == 'y' || again == 'Y')
+			ExamMath(Name, Age, Course);
+			
+		else if (again == 'N' || 'n');
+		{
+			Done();
+			break;
+		}
+		
+	}while(true);
+	
+    return 0;
+}
+
+void Profile(string& a, string& b, string& c) //start of function defenition outside function main()
+{
+	string Name, Course;
+	string Age;
+	
+	cout << "Name:    ";
+	getline(cin, a);
+	
+	cout << "Age:     ";
+	cin >> b;
+	
+	cout << "Course:  ";
+	cin >> c;
+}
+
+void Display_Profile(string& a, string& b, string& c) //i didn't display this inside function main(), instead use it in other function to display
+{
+	cout << "          ============================================\n";
+	cout << "                              PROFILE:                \n";
+	cout << "                           Name:   " << a << "        \n";
+	cout << "                           Age:    " << b << "         \n";
+	cout << "                           Course: " << c << "          \n";
+	cout << "          ============================================ \n";
+	
+}
+	
+void Done()
+{
 	cout << "          ============================================ \n";
 	cout << "          ||                                        || \n";
 	cout << "          ||            CONGRATULATIONS             || \n";
 	cout << "          ||                                        || \n";
 	cout << "          ============================================ \n";
 	cout << endl;
-	cout << "PRESS ANY KEY TO EXIT.";
+	cout << "PRESS [ENTER] TO EXIT.";
+	cin.ignore(); //ignore tends to cin any key that doesn't care any value
 }
 
-void ExamMath()
+void ExamMath(string& name, string& age, string& course) // start of the examination
 {
+
 	char key;
 	cout << "          ============================================ \n";
 	cout << "          ||                                        || \n";
@@ -30,27 +95,27 @@ void ExamMath()
 	
 	switch (key)
 	{
-		case 'Y':
+		case 'Y': //dual case to accept either uppercase and lowercase
 		case 'y':
 			//automatically will go to the exam.
 		break;
 		
 		case 'N':
 		case 'n':
-			system ("CLS"); //it will loop to the same exact situation until is says Yes.
-			cout << "YOU CAN DO THIS! Type Y/y to proceed" << endl;
+			system ("cls"); //it will loop to the same exact situation until is says Yes.
+			cout << "YOU CAN DO THIS! Type Y/y to proceed";
 			cout << endl;
-			return ExamMath();
+			return ExamMath(name, age, course);
 		break;
 		
 		default:
-			system ("CLS");
-			cout << "YOU ENTERED A WRONG CHARACTER! type Y/y to proceed" << endl;
+			system("cls");
+			cout << "YOU ENTERED A WRONG CHARACTER! type Y/y to proceed";
 			cout << endl;
-			return ExamMath();
+			return ExamMath(name, age, course);
 		break;
 	}
-	system ("CLS");
+	system ("cls");
 	
 	float Total;
 	char Ans1, Ans2, Ans3, Ans4, Ans5;
@@ -66,6 +131,7 @@ void ExamMath()
 	cout << "answer: ";
 	cin >> Ans1;
 	
+	
 	switch (Ans1)
 	{
 		case 'C':
@@ -74,16 +140,17 @@ void ExamMath()
 		break;
 		
 		default:
-			0+Total;
+			0+Total; //increment the total that equivalent to 0 depending on the correct answer 
 		break;
 	}
 	
-	system("CLS");
+	system("cls");
 	cout << "Question number 2:" << endl;
 	cout << endl;
 	cout << "Who is the Father of Mathematics?" << endl;
 	cout << endl;
 	cout << "a. Archimedes     c. Charles Babbage" << endl;
+	cout << endl;
 	cout << "b. Russel         d. Thales of Miletus" << endl;
 	cout << endl;
 	cout << "answer: ";
@@ -101,7 +168,7 @@ void ExamMath()
 		break;
 	}
 	
-	system ("CLS");
+	system ("cls");
 	cout << "Question 3:" << endl;
 	cout << endl;
 	cout << "Who discovered Pythagoras Theorem?" << endl;
@@ -124,7 +191,7 @@ void ExamMath()
 		break;
 	}
 	
-	system ("CLS");
+	system ("cls");
 	cout << "Question number 3:" << endl;
 	cout << endl;
 	cout << "Where was Abacus invented?" << endl;
@@ -148,7 +215,7 @@ void ExamMath()
 		break;
 	}
 	
-	system("CLS");
+	system("cls");
 	cout << "Question number 5: " << endl;
 	cout << endl;
 	cout << "The total number of dots a dice" << endl;
@@ -173,7 +240,7 @@ void ExamMath()
 	
 	char res;
 	
-	system ("CLS");
+	system ("cls");
 	cout << "          ============================================ \n";
 	cout << "          ||                                        || \n";
 	cout << "          ||                ALL DONE!               || \n";
@@ -187,55 +254,20 @@ void ExamMath()
 	{
 		case 'Y':
 		case 'y':
-				cout << "Your total Score is: " << Total <<"/5" << endl;
+		system ("cls");
+	Display_Profile(name, age, course); //displaying value of variable in other function
+	cout << "          ============================================ \n";
+	cout << "          ||                                        || \n";
+	cout << "          ||         your total score is " << Total << " /5       || \n";
+	cout << "          ||                                        || \n";
+	cout << "          ============================================ \n";
+	cout << endl;
 		break;
 		
 		default:
+			system("cls");
 			//automatically go to int main function
 		break;
 	}
-	
-	return;
-}
 
-int main()
-{
-	//Profile();
-	string Name, Course;
-	float Age;
-	
-	cout << "Name:    ";
-	cin >> Name;
-	
-	cout << "Age:     ";
-	cin >> Age;
-	
-	cout << "Course:  ";
-	cin >> Course;
-	
-	system("CLS"); //clearing the screen inside <stdlib.h> (library)
-	
-	ExamMath();
-	
-	
-	int Again;
-	
-	cout << endl;
-	cout << "Do you want to take the Exam Again? (Y/y for YES) (N/n for NO)" << endl;
-	cout << endl;
-	cin >> Again;
-	
-	switch (Again)
-	{
-		case 'Y':
-		case 'y':
-			ExamMath();
-		break;
-		
-		//default:
-			//Exit();
-		//break;
-	}
-	
-return 0;
-}
+}	
