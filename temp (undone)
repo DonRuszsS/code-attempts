@@ -30,6 +30,7 @@ int main()
     	// if function is used to terminate the loop
 	    if (again == 'y' || again == 'Y')
 			ExamMath(Name, Age, Course);
+			continue;
 			 
 		else if (again == 'N' || 'n');
 		{
