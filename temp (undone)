@@ -1,6 +1,7 @@
 #include <iostream> //cin and cout
 #include <stdlib.h> //clearing the screen
 #include <cstring> //string itself
+#include <istream>
 
 using namespace  std;
 
@@ -32,6 +33,7 @@ int main()
 	    {
 	    	system("cls");
 	    	main();
+	    	 break;
 		}
 		
 		else if (again == 'N' || 'n');
@@ -81,7 +83,7 @@ void Done()
 	cout << "          ||                                        || \n";
 	cout << "          ============================================ \n";
 	cout << endl;
-	cout << "PRESS [ENTER] TO EXIT.";
+	cout << "PRESS [ENTER] TO EXIT...";
 	cin.ignore(); //ignore tends to cin any key that doesn't care any value
 	//system("pause");
 }
@@ -109,23 +111,37 @@ void ExamMath(string& name, string& age, string& course) // start of the examina
 		case 'N':
 		case 'n':
 			system ("cls"); //it will loop to the same exact situation until is says Yes.
-			cout << "YOU CAN DO THIS! Type Y/y to proceed";
+			cout << "====================================================================\n";
+			cout << "              YOU CAN DO THIS! Type Y/y to proceed\n";
+			cout << "====================================================================\n";
 			cout << endl;
 			return ExamMath(name, age, course);
 		break;
 		
 		default:
 			system("cls");
-			cout << "YOU ENTERED A WRONG CHARACTER! type Y/y to proceed";
+			cout << "====================================================================\n";
+			cout << "        YOU ENTERED A WRONG CHARACTER! type Y/y to proceed\n";
+			cout << "====================================================================\n";
 			cout << endl;
 			return ExamMath(name, age, course);
 		break;
 	}
+	string out;
 	system ("cls");
+	cout << "====================================================================\n";
+	cout << "||                           GOODLUCK!!!                          || \n";
+	cout << "====================================================================\n";
+	//cout << endl;
+	cout << "PRESS [ENTER] OR ANY KEY TO CONTINUE...";
+	cin.ignore();
+	getline(cin, out);
+	//cout << endl;
+	
 	
 	float Total;
 	char Ans1, Ans2, Ans3, Ans4, Ans5;
-	
+	system ("cls");
 	cout << "Question number 1:" << endl;
 	cout << endl;
 	cout << "What is the value of Pi?" << endl;
@@ -278,6 +294,9 @@ void ExamMath(string& name, string& age, string& course) // start of the examina
 		
 		default:
 			system("cls");
+			cout << "               SYSTEM ERROR!!! \nDUE TO WRONG CHARACTER, REPEAT THE EXAM!\nAND PLEASE BE CAREFUL OF WHAT YOU ARE DOING\n                     :) \n";
+			cout << endl;
+			break;
 			//automatically go to int main function
 		break;
 	}
