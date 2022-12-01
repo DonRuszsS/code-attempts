@@ -29,9 +29,10 @@ int main()
     	cin >> again;
     	// if function is used to terminate the loop
 	    if (again == 'y' || again == 'Y')
-			ExamMath(Name, Age, Course);
-			continue;
-			 
+		{	
+			main();
+		}
+		
 		else if (again == 'N' || 'n');
 		{
 			Done();
